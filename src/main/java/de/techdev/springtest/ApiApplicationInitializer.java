@@ -9,7 +9,7 @@ public class ApiApplicationInitializer extends AbstractAnnotationConfigDispatche
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] {AppConfiguration.class};
+        return new Class<?>[] {};
     }
 
     @Override
