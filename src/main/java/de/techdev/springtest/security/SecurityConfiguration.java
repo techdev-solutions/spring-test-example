@@ -1,4 +1,4 @@
-package de.techdev.springtest;
+package de.techdev.springtest.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
+ * Spring-Security configuration
+ *
  * @author Moritz Schulze
  */
 @Configuration
@@ -38,6 +40,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new RoleHierarchyVoter(roleHierarchy());
     }
 
+    /**
+     * Export this so {@link de.techdev.springtest.security.MethodSecurityConfiguration} can access the {@link org.springframework.security.authentication.AuthenticationManager}.
+     *
+     * @return The authentication manager bean.
+     */
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {

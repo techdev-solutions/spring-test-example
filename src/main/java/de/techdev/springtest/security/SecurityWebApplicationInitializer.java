@@ -1,14 +1,12 @@
-package de.techdev.springtest;
+package de.techdev.springtest.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
 /**
+ * Initializes the Spring-Security filter chain.
+ *
  * @author Moritz Schulze
  */
 public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
-
-    public SecurityWebApplicationInitializer() {
-        super(SecurityConfiguration.class, MethodSecurityConfiguration.class, AppConfiguration.class);
-    }
 
 }

@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
+ * Initialize the data source and the tx manager.
+ *
  * @author Moritz Schulze
  */
 @Configuration
