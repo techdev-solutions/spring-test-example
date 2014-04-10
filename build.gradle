@@ -25,6 +25,8 @@ dependencies {
     compile "org.springframework:spring-orm:$project.springVersion"
     compile "org.springframework.data:spring-data-jpa:1.5.1.RELEASE"
     compile "com.h2database:h2:1.3.170"
+    //javaassist higher version for Java 8 compability
+    compile "org.javassist:javassist:3.18.1-GA"
 
     //Spring-Security
     compile "org.springframework.security:spring-security-web:$project.springSecurityVersion"

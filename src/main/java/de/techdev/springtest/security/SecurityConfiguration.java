@@ -10,6 +10,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import java.util.Collection;
+
+import static java.util.Arrays.asList;
 
 /**
  * Spring-Security configuration
@@ -20,12 +26,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Bean
+    public Collection<UserDetails> allUsers() {
+        TechdevUser admin = new TechdevUser(() -> "ROLE_ADMIN", "admin", "admin", 0L);
+        TechdevUser employee = new TechdevUser(() -> "ROLE_EMPLOYEE", "employee", "employee", 1L);
+        return asList(admin, employee);
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin").password("admin").authorities("ROLE_ADMIN")
-                .and()
-                .withUser("employee").password("employee").authorities("ROLE_EMPLOYEE");
+        auth.userDetailsService(new InMemoryUserDetailsManager(allUsers()));
     }
 
     @Bean
