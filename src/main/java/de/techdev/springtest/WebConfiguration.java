@@ -1,5 +1,7 @@
 package de.techdev.springtest;
 
+import de.techdev.springtest.domain.EmployeeEventHandler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 
@@ -10,5 +12,10 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
  */
 @Configuration
 public class WebConfiguration extends RepositoryRestMvcConfiguration {
+
+    @Bean
+    public EmployeeEventHandler employeeEventHandler() {
+        return new EmployeeEventHandler();
+    }
 
 }

@@ -18,7 +18,7 @@ public class ApiApplicationInitializer extends AbstractAnnotationConfigDispatche
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {WebConfiguration.class};
+        return new Class<?>[] {WebConfiguration.class, MethodSecurityConfiguration.class};
     }
 
     @Override
