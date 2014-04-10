@@ -13,6 +13,10 @@ repositories {
     mavenCentral()
 }
 
+compileJava {
+    options.compilerArgs << '-parameters'
+}
+
 dependencies {
     compile "org.springframework.data:spring-data-rest-webmvc:2.0.1.RELEASE"
 
