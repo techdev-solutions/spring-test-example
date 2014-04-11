@@ -5,9 +5,6 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.springframework.test.web.servlet.ResultActions;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsNot.not;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -70,8 +67,7 @@ public class DomainResourceTestMatchers {
     public static Matcher<? super ResultActions> isCreated() {
         return new ResultActionsMatcher("created", resultActions -> {
             resultActions
-                    .andExpect(status().isCreated())
-                    .andExpect(jsonPath("id", not(is((String)null))));
+                    .andExpect(status().isCreated());
         });
     }
 
@@ -90,8 +86,7 @@ public class DomainResourceTestMatchers {
     public static Matcher<? super ResultActions> isUpdated() {
         return new ResultActionsMatcher("updated", resultActions -> {
             resultActions
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("id", not(is((String) null))));
+                    .andExpect(status().isOk());
         });
     }
 
