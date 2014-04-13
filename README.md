@@ -18,7 +18,7 @@ on Java 8. A DSL is implemented to allow tests like this
         assertThat(removeWith(admin()), isMethodNotAllowed());
     }
 
-Blog post: [blog.techdev.de](http://blog.techdev.de)
+Blog post: [http://blog.techdev.de/testing-a-secured-spring-data-rest-service-with-java-8-and-mockmvc](http://blog.techdev.de/testing-a-secured-spring-data-rest-service-with-java-8-and-mockmvc)
 
 Requirements
 ------------
