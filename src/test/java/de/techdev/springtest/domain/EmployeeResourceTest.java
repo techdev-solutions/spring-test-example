@@ -63,6 +63,11 @@ public class EmployeeResourceTest extends AbstractResourceTest<Employee> {
     }
 
     @Test
+    public void updateWithOtherEmployee() throws Exception {
+        assertThat(updateWith(otherEmployee), isForbidden());
+    }
+
+    @Test
     public void deleteWithAdmin() throws Exception {
         assertThat(removeWith(admin()), isMethodNotAllowed());
     }
